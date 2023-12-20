@@ -1,6 +1,5 @@
-import { forEach } from "cypress/types/lodash"
 
-export class CarDetails
+export class CarPage
 {
 
 VerifyCarHeading(carHeading)
@@ -8,30 +7,24 @@ VerifyCarHeading(carHeading)
     cy.get('h1.tm-motors-listing__title').contains(carHeading)
 }
 
-VerifyCarAttributies(attributesDetails)
+VerifyCarAttributes(attributeName,attributeValue)
 {
-    attributesDetails.forEach(attribute =>{
-    cy.get('tg-icon[name='+attribute.attributeName+']').parent().parent().contains(attribute.attributeValue)
-    })
+    cy.get('tg-icon[name='+attributeName+']').parent().parent().contains(attributeValue)
 }
  
-VerifyCarRatings(ratingDetails)
+VerifyCarRatings(CarRatingCategory,GivenRating,TotalRating)
 {
-    ratingDetails.forEach(rating =>{
-        cy.get("div.tm-motors-listing-ratings__rating-card div.tm-motors-listing-ratings__title")
-        .contains(rating.RatingName)
-        .parent().get('div.tm-listing-rating-star__blue[aria-label='+rating.RatingValue+'out of '+rating.RatingValue+' stars')
+         cy.get("div.tm-motors-listing-ratings__card-top-section div.tm-motors-listing-ratings__title")
+        .contains(CarRatingCategory)
+        .siblings('tm-listing-ratings-star')
+        .get("div.tm-listing-rating-star__blue[aria-label='"+GivenRating+" out of "+TotalRating+" stars'"+"]")
         .should('be.visible')
-    })
-   
 }
 
-VerifyCarBackGroundCheck(backgroundCheckDetails)
+VerifyCarBackGroundCheck(CheckType,CheckStatus)
 {
-    backgroundCheckDetails.forEach(checkDetail =>{
-        cy.get("tm-background-check-box[checktitle='"+ checkDetail.CheckName+"']")
-        .get('span.tm-background-check__status').contains(checkDetail.CheckStatus)
-    })
+        cy.get("tm-background-check-box[checktitle='"+ CheckType+"']")
+        .get('span.tm-background-check__status').contains(CheckStatus)
 }
 
 VerifyCarDescription(carDescription)
