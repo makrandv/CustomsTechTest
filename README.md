@@ -19,14 +19,15 @@ c. multiple-cucumber-html-reporter: v3.5.0
 Need Node.js with v20.10.0 installed
 
 Clone the Git Repo locally the run below commands to install
-npm init
 npm install
 
 **Execution:**
 These command should install all the required dependencies and then feature files are ready for execution of scenarios using below command
 
 npx cypress run (in headless mode)
+
 or 
+
 npx cypress open (to execute from the Cypress Runner)
 
 Once the tests are executed below command can be used to generate HTML report from the JSON file
