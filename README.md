@@ -11,8 +11,11 @@ Below are the scenarios covered :
 Cypress was used as test automation tool for both UI and api testing and to verify scenarios with BDD approach we have used cypress-cucumber-preprocessor plugin.
 
 Below are npm dependencies needed
+
 a. Cypress v13.6.1
+
 b. Cypress-cucumber-preprocessor: v4.3.1
+
 c. multiple-cucumber-html-reporter: v3.5.0
 
 **Installation :**
